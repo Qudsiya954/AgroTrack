@@ -1,0 +1,328 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AgroTrack Dashboard</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Mobile Menu Button -->
+  <button class="menu-btn" id="menuBtn">
+    ☰
+  </button>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+      <div class="logo-section">
+        <h1>AgroTrack</h1>
+        <p>Smart Agriculture Dashboard</p>
+      </div>
+
+      <nav>
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Live Monitor</a>
+        <a href="#">Irrigation</a>
+        <a href="#">Alerts</a>
+        <a href="#">Analytics</a>
+        <a href="#">Settings</a>
+      </nav>
+
+      <div class="system-status">
+
+        <h3>System Status</h3>
+
+        <div class="online">
+          <span class="dot"></span>
+          Online
+        </div>
+
+      </div>
+
+    </aside>
+
+    <!-- Main -->
+    <main class="main-content">
+
+      <!-- Topbar -->
+      <header class="topbar">
+
+        <div>
+          <h2>Dashboard</h2>
+          <p>Real-time smart irrigation monitoring</p>
+        </div>
+
+        <div class="status-bar">
+
+          <div class="status-card">
+            ESP32:
+            <span>Connected</span>
+          </div>
+
+          <div class="status-card">
+            Backend:
+            <span class="backend-status">Checking...</span>
+          </div>
+
+          <div class="profile">
+            A
+          </div>
+
+        </div>
+
+      </header>
+
+      <!-- Sensor Cards -->
+      <section class="cards">
+
+        <!-- Temperature -->
+        <div class="card">
+
+          <div class="card-top">
+            <h3>Temperature</h3>
+            <span>🌡️</span>
+          </div>
+
+          <h1 class="green temp-value">--°C</h1>
+
+          <p class="green">
+            Normal Range
+          </p>
+
+        </div>
+
+        <!-- Humidity -->
+        <div class="card">
+
+          <div class="card-top">
+            <h3>Humidity</h3>
+            <span>💧</span>
+          </div>
+
+          <h1 class="blue humidity-value">--%</h1>
+
+          <p class="blue">
+            Optimal
+          </p>
+
+        </div>
+
+        <!-- Soil -->
+        <div class="card">
+
+          <div class="card-top">
+            <h3>Soil Moisture</h3>
+            <span>🌱</span>
+          </div>
+
+          <h1 class="yellow soil-value">--%</h1>
+
+          <p class="yellow soil-status">
+            Loading...
+          </p>
+
+        </div>
+
+        <!-- Light -->
+        <div class="card">
+
+          <div class="card-top">
+            <h3>Light Intensity</h3>
+            <span>☀️</span>
+          </div>
+
+          <h1 class="orange light-value">--</h1>
+
+          <p class="orange">
+            Environment Light
+          </p>
+
+        </div>
+
+      </section>
+
+      <!-- Middle Section -->
+      <section class="middle-section">
+
+        <!-- Plant Health -->
+        <div class="health-box">
+
+          <div class="health-circle">
+            🌿
+          </div>
+
+          <h2 class="health-text">
+            Loading...
+          </h2>
+
+          <p>
+            Real-time environmental monitoring active.
+          </p>
+
+        </div>
+
+        <!-- Irrigation -->
+        <div class="irrigation-box">
+
+          <div class="section-header">
+
+            <h2>Irrigation Control</h2>
+
+            <span class="mode">
+              AUTO
+            </span>
+
+          </div>
+
+          <div class="pump-display">
+
+            Pump Status:
+            <span class="pump-status green">
+              OFF
+            </span>
+
+          </div>
+
+          <div class="slider-section">
+
+            <div class="slider-top">
+              <span>Moisture Threshold</span>
+              <span>40%</span>
+            </div>
+
+            <input type="range" min="0" max="100" value="40">
+
+          </div>
+
+          <div class="buttons">
+
+            <button class="on-btn">
+              PUMP ON
+            </button>
+
+            <button class="off-btn">
+              PUMP OFF
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- Water Tank -->
+        <div class="tank-box">
+
+          <h2>Water Tank</h2>
+
+          <div class="tank">
+
+            <div class="water">
+              68%
+            </div>
+
+          </div>
+
+          <p class="green">
+            Water Level Sufficient
+          </p>
+
+        </div>
+
+      </section>
+
+      <!-- Bottom -->
+      <section class="bottom-section">
+
+        <!-- Alerts -->
+        <div class="alerts-box">
+
+          <div class="section-header">
+            <h2>System Alerts</h2>
+          </div>
+
+          <div class="alert red">
+
+            <h3>Low Soil Moisture</h3>
+
+            <p>
+              Soil moisture below threshold level.
+            </p>
+
+          </div>
+
+          <div class="alert yellow-alert">
+
+            <h3>Low Sunlight</h3>
+
+            <p>
+              Plant not receiving enough sunlight.
+            </p>
+
+          </div>
+
+          <div class="alert blue-alert">
+
+            <h3>Pump Activated</h3>
+
+            <p>
+              Automatic watering activated successfully.
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- Logs -->
+        <div class="logs-box">
+
+          <div class="section-header">
+            <h2>Recent Logs</h2>
+          </div>
+
+          <table>
+
+            <thead>
+
+              <tr>
+                <th>Date</th>
+                <th>Mode</th>
+                <th>Water</th>
+                <th>Status</th>
+              </tr>
+
+            </thead>
+
+            <tbody id="logs-table-body">
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
