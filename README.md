@@ -1,19 +1,37 @@
 # 🌱 AgroTrack
 
-AgroTrack is an IoT-based smart plant monitoring and automated irrigation system designed to monitor environmental conditions in real time and automate water pump control.
+AgroTrack is an IoT-based smart agriculture monitoring and automated irrigation system designed to monitor environmental conditions in real time and automate irrigation management securely.
+
+The system integrates IoT sensors, a responsive dashboard, backend APIs, MongoDB storage, and cybersecurity protection mechanisms for secure smart farming operations.
 
 ---
 
 # 🚀 Features
 
 - Real-time sensor monitoring
-- Automated water pump control
+- Automated irrigation monitoring
 - Responsive dashboard UI
-- MongoDB data storage
-- Backend API integration
-- Dynamic sensor updates
-- Live logs and pump status monitoring
+- MongoDB database integration
+- Live sensor logs and analytics
+- Dynamic alerts system
+- JWT-based authentication
+- Protected backend APIs
 - Mobile-friendly interface
+- Security attack detection and prevention
+
+---
+
+# 🔐 Security Features Implemented
+
+AgroTrack includes protection against multiple IoT and web security threats:
+
+| Security Threat | Protection Mechanism |
+|---|---|
+| Unauthorized Access | JWT Authentication |
+| Denial of Service (DoS) | Rate Limiting Middleware |
+| Replay Attack | Timestamp Validation |
+| Sensor Data Spoofing | Sensor Threshold Validation |
+| Man-in-the-Middle (MITM) | Secure Request Validation + Helmet.js |
 
 ---
 
@@ -43,259 +61,18 @@ AgroTrack is an IoT-based smart plant monitoring and automated irrigation system
 
 # 📁 Project Structure
 
-```bash
+```text
 AGROTRACK/
 │
 ├── frontend/
-│   ├── index.html
-│   ├── styles.css
-│   ├── script.js
-│   └── AgroTrack.jpeg
 │
 ├── backend/
-│   ├── config/
 │   ├── controllers/
 │   ├── middleware/
 │   ├── models/
 │   ├── routes/
-│   ├── .env
-│   ├── package.json
-│   ├── package-lock.json
 │   └── server.js
-```
+│
+└── README.md
 
----
 
-# ⚠️ Important
-
-Do NOT upload or share:
-
-```bash
-backend/node_modules
-```
-
-If `node_modules` is missing, install dependencies using:
-
-```bash
-npm install
-```
-
-inside the backend folder.
-
----
-
-# 💻 Required Software
-
-Install the following software before running the project:
-
-1. Node.js  
-   https://nodejs.org
-
-2. MongoDB Community Server  
-   https://www.mongodb.com/try/download/community
-
-3. MongoDB Compass  
-   https://www.mongodb.com/products/tools/compass
-
-4. Visual Studio Code  
-   https://code.visualstudio.com
-
-5. Postman  
-   https://www.postman.com/downloads/
-
----
-
-# ⚙️ Backend Setup
-
-## 1. Open terminal inside backend folder
-
-```bash
-cd backend
-```
-
-## 2. Install dependencies
-
-```bash
-npm install
-```
-
-## 3. Start backend server
-
-```bash
-npm run dev
-```
-
-### Expected Output
-
-```bash
-MongoDB Connected
-Server running on port 5000
-```
-
----
-
-# 🗄 MongoDB Connection
-
-MongoDB should be running locally.
-
-### Connection URI
-
-```bash
-mongodb://127.0.0.1:27017
-```
-
-### Database Name
-
-```bash
-agrotrack
-```
-
----
-
-# 🌐 Frontend Setup
-
-## 1. Open frontend folder in VS Code
-
-## 2. Install Live Server Extension
-
-## 3. Right-click `index.html`
-
-## 4. Click
-
-```bash
-Open with Live Server
-```
-
----
-
-# 🔌 Backend API
-
-## Base URL
-
-```bash
-http://localhost:5000
-```
-
----
-
-## Available APIs
-
-### 1. Add Sensor Data
-
-```http
-POST /api/sensors/add
-```
-
-### 2. Latest Sensor Data
-
-```http
-GET /api/sensors/latest
-```
-
-### 3. Sensor Logs
-
-```http
-GET /api/sensors/logs
-```
-
----
-
-# 📬 Postman Test Data
-
-## POST Request
-
-```http
-http://localhost:5000/api/sensors/add
-```
-
-## JSON Body
-
-```json
-{
-  "temperature": 29,
-  "humidity": 68,
-  "soilMoisture": 35,
-  "lightIntensity": 270,
-  "pumpStatus": "ON"
-}
-```
-
----
-
-# ✅ Current Features Implemented
-
-- Responsive dashboard
-- Backend integration
-- MongoDB integration
-- Dynamic sensor updates
-- Dynamic recent logs
-- Pump status monitoring
-- Backend status monitoring
-- Mobile-friendly UI
-
----
-
-# 🔮 Next Implementation
-
-- ESP32 Wi-Fi integration
-- Live hardware sensor data
-- Relay-controlled water pump automation
-- Pump timeout protection
-
----
-
-# 🔢 Default Ports
-
-| Service | Port |
-|----------|------|
-| Frontend | 5500 |
-| Backend | 5000 |
-| MongoDB | 27017 |
-
----
-
-# 👨‍💻 Team Setup Instructions
-
-After cloning the repository:
-
-```bash
-git clone <repository-url>
-```
-
-Install backend dependencies:
-
-```bash
-cd backend
-npm install
-```
-
-Start backend server:
-
-```bash
-npm run dev
-```
-
-Run frontend using Live Server in VS Code.
-
----
-
-# 📌 Notes
-
-- Ensure MongoDB service is running before starting backend.
-- Backend runs on port `5000`.
-- Frontend runs on Live Server port `5500`.
-- Use Postman to test backend APIs.
-
----
-
-# 🌱 AgroTrack Workflow
-
-```text
-ESP32 Sensors
-      ↓
-Backend API
-      ↓
-MongoDB Database
-      ↓
-Frontend Dashboard
-```
