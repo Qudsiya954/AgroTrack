@@ -1,0 +1,191 @@
+# live-monitor.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AgroTrack Live Monitor</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+      <div class="logo-section">
+        <h1>AgroTrack</h1>
+        <p>Smart Agriculture Dashboard</p>
+      </div>
+
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="live-monitor.html" class="active">Live Monitor</a>
+        <a href="irrigation.html">Irrigation</a>
+        <a href="alerts.html">Alerts</a>
+        <a href="analytics.html">Analytics</a>
+      </nav>
+
+      <div class="system-status">
+
+        <h3>System Status</h3>
+
+        <div class="online">
+          <span class="dot"></span>
+          Online
+        </div>
+
+      </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- Topbar -->
+      <header class="topbar">
+
+        <div>
+          <h2>Live Monitoring</h2>
+          <p>Real-time environmental sensor monitoring</p>
+        </div>
+
+        <div class="status-bar">
+
+          <div class="status-card">
+            ESP32:
+            <span>Connected</span>
+          </div>
+
+          <div class="status-card">
+            Backend:
+            <span class="backend-status">Checking...</span>
+          </div>
+
+          <div class="top-actions">
+
+            <button class="logout-btn" onclick="logout()">
+              Logout
+            </button>
+
+            <div class="profile" id="profileInitial">
+              A
+            </div>
+
+          </div>
+
+        </div>
+
+      </header>
+
+      <!-- Sensor Grid -->
+      <section class="monitor-grid">
+
+        <div class="monitor-card">
+          <h3>Temperature</h3>
+          <h1 class="temp-value">--°C</h1>
+          <p>Current Atmospheric Temperature</p>
+        </div>
+
+        <div class="monitor-card">
+          <h3>Humidity</h3>
+          <h1 class="humidity-value">--%</h1>
+          <p>Current Air Humidity</p>
+        </div>
+
+        <div class="monitor-card">
+          <h3>Soil Moisture</h3>
+          <h1 class="soil-value">--%</h1>
+          <p class="soil-status">Checking Soil...</p>
+        </div>
+
+        <div class="monitor-card">
+          <h3>Light Intensity</h3>
+          <h1 class="light-value">--</h1>
+          <p>Current Sunlight Exposure</p>
+        </div>
+
+      </section>
+
+      <!-- Monitoring Section -->
+      <section class="monitor-section">
+
+        <div class="live-box">
+
+          <h2>Live Monitoring Status</h2>
+
+          <div class="live-indicator">
+            <span class="pulse"></span>
+            LIVE DATA STREAM ACTIVE
+          </div>
+
+          <div class="monitor-info">
+
+            <div class="info-row">
+              <span>Last Updated:</span>
+              <span id="lastUpdated">--</span>
+            </div>
+
+            <div class="info-row">
+              <span>Backend Server:</span>
+              <span class="backend-status-text">Checking...</span>
+            </div>
+
+            <div class="info-row">
+              <span>Sensor Frequency:</span>
+              <span>5 Seconds</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="sensor-health-box">
+
+          <h2>Sensor Health</h2>
+
+          <div class="sensor-health-grid">
+
+            <div class="sensor-item healthy">
+              DHT11 Sensor
+            </div>
+
+            <div class="sensor-item healthy">
+              Soil Sensor
+            </div>
+
+            <div class="sensor-item healthy">
+              LDR Sensor
+            </div>
+
+            <div class="sensor-item healthy">
+              Relay Module
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+
+

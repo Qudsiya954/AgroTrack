@@ -7,8 +7,11 @@ const {
   getAllLogs,
 } = require('../controllers/sensorController');
 
+const authMiddleware = require('../middleware/authMiddleware');
+
+// Protected Routes
 router.post('/add', addSensorData);
-router.get('/latest', getLatestData);
-router.get('/logs', getAllLogs);
+router.get('/latest', authMiddleware, getLatestData);
+router.get('/logs', authMiddleware, getAllLogs);
 
 module.exports = router;

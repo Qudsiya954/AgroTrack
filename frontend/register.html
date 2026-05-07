@@ -1,11 +1,11 @@
-<!-- index.html -->
+<!-- register.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>AgroTrack Login</title>
+  <title>AgroTrack Register</title>
 
   <link rel="stylesheet" href="auth.css">
 
@@ -21,19 +21,19 @@
 
     <div class="auth-box">
 
-      <h1>AgroTrack</h1>
+      <h1>Create Account</h1>
 
       <p class="subtitle">
-        Smart Agriculture Monitoring System
+        Register for AgroTrack Dashboard
       </p>
 
-      <form id="loginForm">
+      <form id="registerForm">
 
         <div class="input-group">
           <label>Username</label>
           <input
             type="text"
-            id="username"
+            id="regUsername"
             placeholder="Enter username"
             required
           />
@@ -43,21 +43,21 @@
           <label>Password</label>
           <input
             type="password"
-            id="password"
+            id="regPassword"
             placeholder="Enter password"
             required
           />
         </div>
 
         <button type="submit" class="auth-btn">
-          Login
+          Register
         </button>
 
       </form>
 
       <p class="bottom-text">
-        Don't have an account?
-        <a href="register.html">Register</a>
+        Already have an account?
+        <a href="index.html">Login</a>
       </p>
 
       <p id="message"></p>

@@ -1,0 +1,266 @@
+# live-monitor.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AgroTrack Alerts</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+      <div class="logo-section">
+        <h1>AgroTrack</h1>
+        <p>Smart Agriculture Dashboard</p>
+      </div>
+
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="live-monitor.html">Live Monitor</a>
+        <a href="irrigation.html">Irrigation</a>
+        <a href="alerts.html" class="active">Alerts</a>
+        <a href="analytics.html">Analytics</a>
+      </nav>
+
+      <div class="system-status">
+
+        <h3>System Status</h3>
+
+        <div class="online">
+          <span class="dot"></span>
+          Online
+        </div>
+
+      </div>
+
+    </aside>
+    <main class="main-content">
+
+  <!-- Topbar -->
+  <header class="topbar">
+
+    <div>
+      <h2>System Alerts</h2>
+      <p>Environmental warnings and security notifications</p>
+    </div>
+
+    <div class="status-bar">
+
+      <div class="status-card">
+        Active Alerts:
+        <span class="alert-count">3</span>
+      </div>
+
+      <div class="status-card">
+        System:
+        <span class="green">Protected</span>
+      </div>
+
+      <div class="top-actions">
+
+        <button class="logout-btn" onclick="logout()">
+          Logout
+        </button>
+
+        <div class="profile" id="profileInitial">
+          A
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- Alert Summary -->
+  <section class="alert-summary-grid">
+
+    <div class="summary-card critical-card">
+
+      <h3>Critical Alerts</h3>
+
+      <h1>1</h1>
+
+      <p>Immediate attention required</p>
+
+    </div>
+
+    <div class="summary-card warning-card">
+
+      <h3>Warnings</h3>
+
+      <h1>2</h1>
+
+      <p>Potential environmental risks</p>
+
+    </div>
+
+    <div class="summary-card success-card">
+
+      <h3>Resolved</h3>
+
+      <h1>12</h1>
+
+      <p>Successfully handled alerts</p>
+
+    </div>
+
+  </section>
+
+  <!-- Alert Feed -->
+  <section class="alerts-feed">
+
+    <div class="section-header">
+
+      <h2>Recent Alerts</h2>
+
+      <button class="clear-alerts-btn">
+        Clear Alerts
+      </button>
+
+    </div>
+
+    <div class="alert-card critical-alert">
+
+      <div class="alert-icon">
+        ⚠️
+      </div>
+
+      <div class="alert-content">
+
+        <h3>Low Soil Moisture Detected</h3>
+
+        <p>
+          Soil moisture dropped below safe threshold.
+          Irrigation recommended immediately.
+        </p>
+
+        <span class="alert-time">
+          2 minutes ago
+        </span>
+
+      </div>
+
+    </div>
+
+    <div class="alert-card warning-alert">
+
+      <div class="alert-icon">
+        🌡️
+      </div>
+
+      <div class="alert-content">
+
+        <h3>High Temperature Warning</h3>
+
+        <p>
+          Temperature exceeded recommended crop range.
+        </p>
+
+        <span class="alert-time">
+          10 minutes ago
+        </span>
+
+      </div>
+
+    </div>
+
+    <div class="alert-card security-alert">
+
+      <div class="alert-icon">
+        🔒
+      </div>
+
+      <div class="alert-content">
+
+        <h3>Unauthorized Access Blocked</h3>
+
+        <p>
+          Invalid token request detected and blocked successfully.
+        </p>
+
+        <span class="alert-time">
+          18 minutes ago
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Threat Detection -->
+  <section class="threat-section">
+
+    <div class="threat-box">
+
+      <h2>Threat Detection Status</h2>
+
+      <div class="threat-status safe">
+
+        <div class="shield-icon">
+          🛡️
+        </div>
+
+        <h1>SYSTEM SECURE</h1>
+
+        <p>
+          No active cyber threats detected.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="attack-monitor-box">
+
+      <h2>Security Monitoring</h2>
+
+      <div class="attack-list">
+
+        <div class="attack-item">
+          Unauthorized Access Protection
+          <span class="green">ACTIVE</span>
+        </div>
+
+        <div class="attack-item">
+          JWT Authentication
+          <span class="green">ACTIVE</span>
+        </div>
+
+        <div class="attack-item">
+          Replay Attack Detection
+          <span class="yellow">MONITORING</span>
+        </div>
+
+        <div class="attack-item">
+          DoS Protection
+          <span class="green">ACTIVE</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

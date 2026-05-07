@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AgroTrack Irrigation</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo-section">
+                <h1>AgroTrack</h1>
+                <p>Smart Agriculture Dashboard</p>
+            </div>
+
+            <nav>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="live-monitor.html" >Live Monitor</a>
+                <a href="irrigation.html" class="active">Irrigation</a>
+                <a href="alerts.html">Alerts</a>
+                <a href="analytics.html">Analytics</a>
+            </nav>
+
+            <div class="system-status">
+
+                <h3>System Status</h3>
+
+                <div class="online">
+                    <span class="dot"></span>
+                    Online
+                </div>
+
+            </div>
+
+        </aside>
+
+        <main class="main-content">
+
+            <!-- Topbar -->
+            <header class="topbar">
+
+                <div>
+                    <h2>Irrigation Control</h2>
+                    <p>Smart irrigation and pump automation management</p>
+                </div>
+
+                <div class="status-bar">
+
+                    <div class="status-card">
+                        Pump:
+                        <span class="pump-status-text">OFF</span>
+                    </div>
+
+                    <div class="status-card">
+                        Mode:
+                        <span class="mode-status">AUTO</span>
+                    </div>
+
+                    <div class="top-actions">
+
+                        <button class="logout-btn" onclick="logout()">
+                            Logout
+                        </button>
+
+                        <div class="profile" id="profileInitial">
+                            A
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- Irrigation Grid -->
+            <section class="irrigation-grid">
+
+                <!-- Pump Control -->
+                <div class="irrigation-card">
+
+                    <h2>Water Pump Control</h2>
+
+                    <div class="pump-indicator">
+
+                        <div class="pump-circle">
+                            💧
+                        </div>
+
+                        <h1 class="pump-status">
+                            OFF
+                        </h1>
+
+                    </div>
+
+                    <div class="pump-buttons">
+
+                        <button class="pump-on-btn">
+                            TURN ON
+                        </button>
+
+                        <button class="pump-off-btn">
+                            TURN OFF
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- Irrigation Mode -->
+                <div class="irrigation-card">
+
+                    <h2>Irrigation Mode</h2>
+
+                    <div class="mode-container">
+
+                        <button class="mode-btn active-mode">
+                            AUTO MODE
+                        </button>
+
+                        <button class="mode-btn">
+                            MANUAL MODE
+                        </button>
+
+                    </div>
+
+                    <div class="mode-info">
+
+                        <p>
+                            AUTO mode controls irrigation automatically based on soil moisture.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Threshold + Water Usage -->
+            <section class="irrigation-bottom">
+
+                <!-- Moisture Threshold -->
+                <div class="threshold-box">
+
+                    <h2>Moisture Threshold</h2>
+
+                    <div class="threshold-display">
+                        <span id="thresholdValue">40%</span>
+                    </div>
+
+                    <input type="range" min="0" max="100" value="40" id="thresholdSlider">
+
+                    <p class="threshold-info">
+                        Irrigation activates automatically below this value.
+                    </p>
+
+                </div>
+
+                <!-- Water Usage -->
+                <div class="usage-box">
+
+                    <h2>Today's Water Usage</h2>
+
+                    <div class="usage-value">
+                        24L
+                    </div>
+
+                    <div class="usage-status">
+                        Normal Consumption
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Irrigation Logs -->
+            <section class="irrigation-logs">
+
+                <h2>Recent Irrigation Activity</h2>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Time</th>
+                            <th>Mode</th>
+                            <th>Action</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>10:42 AM</td>
+                            <td>AUTO</td>
+                            <td>Pump Activated</td>
+                            <td class="green">Success</td>
+                        </tr>
+
+                        <tr>
+                            <td>11:15 AM</td>
+                            <td>MANUAL</td>
+                            <td>Pump Disabled</td>
+                            <td class="red">Stopped</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+        </main>
+    <script src="script.js"></script>
+</body>
+</html>
