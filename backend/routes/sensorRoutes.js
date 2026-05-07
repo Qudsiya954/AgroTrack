@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const requestValidator =require("../middleware/requestValidator");
+const replayProtection =require("../middleware/replayProtection");
 
 const {
   addSensorData,
@@ -10,7 +12,12 @@ const {
 const authMiddleware = require('../middleware/authMiddleware');
 
 // Protected Routes
-router.post('/add', addSensorData);
+router.post(
+  '/add',
+  requestValidator,
+  replayProtection,
+  addSensorData
+);
 router.get('/latest', authMiddleware, getLatestData);
 router.get('/logs', authMiddleware, getAllLogs);
 

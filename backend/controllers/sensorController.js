@@ -1,24 +1,137 @@
 const SensorData = require('../models/SensorData');
 const Alert = require('../models/Alert');
 
-// Add Sensor Data
+// =========================
+// ADD SENSOR DATA
+// =========================
+
 const addSensorData = async (req, res) => {
+
   try {
-    const newData =
-      new SensorData(req.body);
+
+    const {
+      temperature,
+      humidity,
+      soilMoisture,
+      lightIntensity,
+      irrigationStatus
+    } = req.body;
+
+    // =========================
+    // SENSOR SPOOFING DETECTION
+    // =========================
+
+    // Invalid Temperature
+    if (
+      temperature < -10 ||
+      temperature > 60
+    ) {
+
+      await Alert.create({
+
+        type:
+          "SENSOR SPOOFING DETECTED",
+
+        message:
+          "Abnormal temperature value received",
+
+        severity:
+          "HIGH"
+
+      });
+
+      return res.status(400).json({
+
+        success: false,
+
+        message:
+          "Fake temperature data detected"
+
+      });
+
+    }
+
+    // Invalid Humidity
+    if (
+      humidity < 0 ||
+      humidity > 100
+    ) {
+
+      await Alert.create({
+
+        type:
+          "SENSOR SPOOFING DETECTED",
+
+        message:
+          "Abnormal humidity value received",
+
+        severity:
+          "HIGH"
+
+      });
+
+      return res.status(400).json({
+
+        success: false,
+
+        message:
+          "Fake humidity data detected"
+
+      });
+
+    }
+
+    // Invalid Soil Moisture
+    if (
+      soilMoisture < 0 ||
+      soilMoisture > 100
+    ) {
+
+      await Alert.create({
+
+        type:
+          "SENSOR SPOOFING DETECTED",
+
+        message:
+          "Abnormal soil moisture detected",
+
+        severity:
+          "HIGH"
+
+      });
+
+      return res.status(400).json({
+
+        success: false,
+
+        message:
+          "Fake soil moisture detected"
+
+      });
+
+    }
+
+    // =========================
+    // SAVE SENSOR DATA
+    // =========================
+
+    const newData = new SensorData({
+
+      temperature,
+      humidity,
+      soilMoisture,
+      lightIntensity,
+      irrigationStatus
+
+    });
 
     await newData.save();
 
     // =========================
-    // ALERT LOGIC
+    // ENVIRONMENTAL ALERTS
     // =========================
 
-    const {
-      temperature,
-      soilMoisture
-    } = req.body;
-
-    // LOW SOIL ALERT
+    // Low Soil Moisture
     if (soilMoisture < 40) {
 
       await Alert.create({
@@ -36,7 +149,7 @@ const addSensorData = async (req, res) => {
 
     }
 
-    // HIGH TEMPERATURE ALERT
+    // High Temperature
     if (temperature > 35) {
 
       await Alert.create({
@@ -54,42 +167,88 @@ const addSensorData = async (req, res) => {
 
     }
 
+    // =========================
+    // RESPONSE
+    // =========================
+
     res.status(201).json({
+
       success: true,
+
       data: newData
+
     });
+
   } catch (error) {
+
     res.status(500).json({
+
       success: false,
-      message: error.message,
+
+      message: error.message
+
     });
-    }
-  };
 
-  // Get Latest Sensor Data
-  const getLatestData = async (req, res) => {
-    try {
-      const latestData = await SensorData.findOne().sort({ createdAt: -1 });
+  }
 
-      res.status(200).json(latestData);
-    } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
-  };
+};
 
-  // Get All Logs
-  const getAllLogs = async (req, res) => {
-    try {
-      const logs = await SensorData.find().sort({ createdAt: -1 });
+// =========================
+// GET LATEST SENSOR DATA
+// =========================
 
-      res.status(200).json(logs);
-    } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
-  };
+const getLatestData = async (req, res) => {
 
-  module.exports = {
-    addSensorData,
-    getLatestData,
-    getAllLogs,
-  };
+  try {
+
+    const latestData =
+      await SensorData.findOne()
+        .sort({ createdAt: -1 });
+
+    res.status(200).json(latestData);
+
+  } catch (error) {
+
+    res.status(500).json({
+
+      message: error.message
+
+    });
+
+  }
+
+};
+
+// =========================
+// GET ALL LOGS
+// =========================
+
+const getAllLogs = async (req, res) => {
+
+  try {
+
+    const logs =
+      await SensorData.find()
+        .sort({ createdAt: -1 });
+
+    res.status(200).json(logs);
+
+  } catch (error) {
+
+    res.status(500).json({
+
+      message: error.message
+
+    });
+
+  }
+
+};
+
+module.exports = {
+
+  addSensorData,
+  getLatestData,
+  getAllLogs,
+
+};
