@@ -11,6 +11,13 @@ const {
 
 const authMiddleware = require('../middleware/authMiddleware');
 
+// Arduino-specific route — no replay protection (IoT device, trusted network)
+router.post(
+  '/arduino',
+  requestValidator,   // just checks Authorization header exists
+  addSensorData
+);
+
 // Protected Routes
 router.post(
   '/add',
